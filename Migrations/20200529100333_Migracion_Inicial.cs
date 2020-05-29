@@ -11,18 +11,17 @@ namespace RegistroPrestamo.Migrations
                 name: "Prestamos",
                 columns: table => new
                 {
-                    IdPersona = table.Column<int>(nullable: false)
+                    IdPrestamo = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    IdPrestamo = table.Column<int>(nullable: false),
+                    IdPersona = table.Column<int>(nullable: false),
                     Monto = table.Column<double>(nullable: false),
                     Balance = table.Column<double>(nullable: false),
                     ConceptoPrestamo = table.Column<string>(nullable: true),
-                    FechaPrestamo = table.Column<DateTime>(nullable: false),
-                    Historial = table.Column<string>(nullable: true)
+                    FechaPrestamo = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Prestamos", x => x.IdPersona);
+                    table.PrimaryKey("PK_Prestamos", x => x.IdPrestamo);
                 });
         }
 
