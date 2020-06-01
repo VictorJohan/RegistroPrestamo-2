@@ -38,12 +38,13 @@ namespace ProgramaPrestamos.BLL
         {
             bool key = false;
             Contexto contexto = new Contexto();
-
+            
             try
             {
                 
                 contexto.Prestamos.Add(prestamos);
                 key = contexto.SaveChanges() > 0;
+        
             }
             catch (Exception)
             {
@@ -82,12 +83,26 @@ namespace ProgramaPrestamos.BLL
 
         public static bool Guardar(Prestamos prestamos)
         {
+            Contexto contexto = new Contexto();
+            Personas personas = PersonasBLL.Buscar(prestamos.IdPersona);
+            Prestamos aux = PrestamosBLL.Buscar(prestamos.IdPrestamo);
+
             if (!Existe(prestamos.IdPersona))
             {
+
+                personas.Balance += prestamos.Monto;
+                personas.Historial += $"Agrego: Prest. Id: {prestamos.IdPrestamo}: {prestamos.Monto}\n";
+                PersonasBLL.Guardar(personas);
+                contexto.Dispose();
                 return Insertar(prestamos);
             }
             else
             {
+                personas.Balance -= aux.Monto;
+                personas.Balance += prestamos.Monto;
+                personas.Historial += $"Modif.: Prest. Id: {prestamos.IdPrestamo}: {prestamos.Monto}\n";
+                PersonasBLL.Guardar(personas);
+                contexto.Dispose();
                 return Modificar(prestamos);
             }
         }
@@ -99,8 +114,12 @@ namespace ProgramaPrestamos.BLL
 
             try
             {
-
                 var prestamos = contexto.Prestamos.Find(id);
+                Personas personas = PersonasBLL.Buscar(prestamos.IdPersona);
+
+                personas.Balance -= prestamos.Monto;
+                personas.Historial += $"Elim.: Prest. Id: {prestamos.IdPrestamo}: {prestamos.Monto}\n";
+                PersonasBLL.Guardar(personas);
 
                 if (prestamos != null)
                 {

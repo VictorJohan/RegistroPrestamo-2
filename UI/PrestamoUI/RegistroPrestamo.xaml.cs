@@ -23,6 +23,9 @@ namespace ProgramaPrestamos.UI
     {
         private Prestamos Prestamo = new Prestamos();
         private int previousLineCount = 0;
+
+        public WindowStartupLocation CenterOwner { get; private set; }
+
         public RegistroPrestamo()
         {
             InitializeComponent();
@@ -41,11 +44,7 @@ namespace ProgramaPrestamos.UI
         private void buscarPrestamoButton_Click(object sender, RoutedEventArgs e)
         {
 
-            UI.RegistroPersona registroPersona = new UI.RegistroPersona();
-            registroPersona.Show();
-
-
-            /* var prestamo = PrestamosBLL.Buscar(int.Parse(idPersonaTextBox.Text));
+             var prestamo = PrestamosBLL.Buscar(int.Parse(idPrestamoTextBox.Text));
 
              if (Prestamo != null)
              {
@@ -58,7 +57,7 @@ namespace ProgramaPrestamos.UI
 
              this.DataContext = Prestamo;
 
-             idPrestamoTextBox.IsReadOnly = true;
+             /*idPrestamoTextBox.IsReadOnly = true;
              idPersonaTextBox.IsReadOnly = true;
              montoTextBox.IsReadOnly = true;
              conceptoTextBox.IsReadOnly = true;
@@ -69,12 +68,12 @@ namespace ProgramaPrestamos.UI
         private void nuevoButton_Click(object sender, RoutedEventArgs e)
         {
             Limpiar();
-            idPrestamoTextBox.IsReadOnly = false;
+           /* idPrestamoTextBox.IsReadOnly = false;
             idPersonaTextBox.IsReadOnly = false;
             montoTextBox.IsReadOnly = false;
             conceptoTextBox.IsReadOnly = false;
             fechaPrestamoDataPicker.IsEnabled = true;
-            guardarButton.IsEnabled = true;
+            guardarButton.IsEnabled = true;*/
         }
 
         private void guardarButton_Click(object sender, RoutedEventArgs e)
@@ -84,47 +83,25 @@ namespace ProgramaPrestamos.UI
                 return;
             }
 
-            if (!PrestamosBLL.Existe(Prestamo.IdPersona))
-            {
-                var ok = PrestamosBLL.Guardar(Prestamo);
+             var ok = PrestamosBLL.Guardar(Prestamo);
 
-                if (ok)
-                {
-                    Limpiar();
-                    MessageBox.Show("Gardado", "Exito",
-                        MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Algo salio mal", "Fallo",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+            if (ok)
+            {
+                Limpiar();
+                MessageBox.Show("Gardado", "Exito",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
-                Contexto contexto = new Contexto();
-                var Aux = contexto.Prestamos.Find(Prestamo.IdPersona);
-
-                var ok = PrestamosBLL.Guardar(Prestamo);
-
-                if (ok)
-                {
-                    Limpiar();
-                    MessageBox.Show("Gardado", "Exito",
-                        MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Algo salio mal", "Fallo",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+                MessageBox.Show("Algo salio mal", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }
 
         private void eliminarButton_Click(object sender, RoutedEventArgs e)
         {
-            if (PrestamosBLL.Eliminar(int.Parse(idPersonaTextBox.Text)))
+            if (PrestamosBLL.Eliminar(int.Parse(idPrestamoTextBox.Text)))
             {
                 Limpiar();
                 MessageBox.Show("Eliminado", "Exito",
@@ -140,20 +117,23 @@ namespace ProgramaPrestamos.UI
 
         private void editarButton_Click(object sender, RoutedEventArgs e)
         {
-            idPrestamoTextBox.IsReadOnly = false;
+
+            //NO SE QUE SE SUPONE QUE DEBA CODIFICAR AQUI YA QUE A LA HORA DE 
+            //BUSCAR EL REGISTRO SE PUEDE EDITAR DIRECTAMENTE.
+
+            /*idPrestamoTextBox.IsReadOnly = false;
             idPersonaTextBox.IsReadOnly = false;
             montoTextBox.IsReadOnly = false;
             conceptoTextBox.IsReadOnly = false;
             fechaPrestamoDataPicker.IsEnabled = true;
-            guardarButton.IsEnabled = true;
+            guardarButton.IsEnabled = true;*/
         }
 
 
         public bool Validar()
         {
             bool ok = true;
-            String refe = @"^[0-9]+$";
-
+            
             if (idPersonaTextBox.Text.Length == 0)
             {
                 MessageBox.Show("El campo Id Persona esta vacio", "Todos los campos son obligatorios",
@@ -172,18 +152,29 @@ namespace ProgramaPrestamos.UI
                 MessageBox.Show("El campo Concepto Monto esta vacio", "Todos los campos son obligatorios",
                    MessageBoxButton.OK, MessageBoxImage.Information);
                 return ok = false;
-            }
-
-            Regex regex = new Regex(refe);
-            MatchCollection match = regex.Matches(montoTextBox.Text);
-
-            if (match.Count > 0)
+            }else if (!PersonasBLL.Existe(int.Parse(idPersonaTextBox.Text)))
             {
-
+                MessageBox.Show("Esta persona no existe en la base de datos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return ok = false;
             }
-            else
+
+            if (!Regex.IsMatch(montoTextBox.Text, @"^[0-9]+$"))
             {
                 MessageBox.Show("Verifique que haya ingresado una cantidad valida", "En el campo Monto solo pueden ir caracteres numericos",
+                   MessageBoxButton.OK, MessageBoxImage.Information);
+                return ok = false;
+            }
+
+            if (!Regex.IsMatch(idPersonaTextBox.Text, @"^[0-9]+$"))
+            {
+                MessageBox.Show("Id de persona no permitido", "Solo se aceptan caracteres numericos",
+                   MessageBoxButton.OK, MessageBoxImage.Information);
+                return ok = false;
+            }
+
+            if (!Regex.IsMatch(idPrestamoTextBox.Text, @"^[0-9]+$"))
+            {
+                MessageBox.Show("Id de prestamo no permitido", "Solo se aceptan caracteres numericos",
                    MessageBoxButton.OK, MessageBoxImage.Information);
                 return ok = false;
             }
@@ -196,6 +187,19 @@ namespace ProgramaPrestamos.UI
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
+        }
+
+      
+
+        private void verPersonaButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            Personas Personas = new Personas();
+            Personas = PersonasBLL.Buscar(int.Parse(idPersonaTextBox.Text));
+
+            RegistroPersona registroPersona = new RegistroPersona();
+            registroPersona.DataContext = Personas;
+            registroPersona.WindowStartupLocation = CenterOwner;
+            registroPersona.Show();
         }
     }
 }

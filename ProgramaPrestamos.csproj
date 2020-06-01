@@ -15,6 +15,7 @@
     <None Remove="Resources\delete.png" />
     <None Remove="Resources\lapiz.png" />
     <None Remove="Resources\money.png" />
+    <None Remove="Resources\ojo.png" />
     <None Remove="Resources\persona.png" />
     <None Remove="Resources\prestamo.png" />
     <None Remove="Resources\save.png" />
@@ -35,6 +36,7 @@
     <Resource Include="Resources\delete.png" />
     <Resource Include="Resources\lapiz.png" />
     <Resource Include="Resources\money.png" />
+    <Resource Include="Resources\ojo.png" />
     <Resource Include="Resources\persona.png" />
     <Resource Include="Resources\prestamo.png" />
     <Resource Include="Resources\save.png" />

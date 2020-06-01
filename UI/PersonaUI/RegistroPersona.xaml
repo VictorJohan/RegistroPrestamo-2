@@ -16,9 +16,9 @@
 
 
                 <StackPanel Orientation="Horizontal" Width="159" HorizontalAlignment="Left">
-                    <TextBox Name="idPrestamoTextBox" Text="{Binding IdPersona}" Width="80" Margin="5,0,0,0"/>
+                    <TextBox Name="idPersonaTextBox" Text="{Binding PersonaId}" Width="80" Margin="5,0,0,0"/>
 
-                    <Button Name="buscarPersonaButton" Width="60" Height="20" HorizontalContentAlignment="Left" Margin="11,0,0,0">
+                    <Button Name="buscarPersonaButton" Width="60" Height="20" HorizontalContentAlignment="Left" Margin="11,0,0,0" Click="buscarPersonaButton_Click">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/search.png" />
                             <Label Content="Buscar" FontWeight="Bold" Padding="-1"/>
@@ -28,28 +28,24 @@
 
                 <Label Content="Nombres:" FontWeight="Bold"/>
 
-                <TextBox Name="nombreTextBox" Text="{Binding Nombre}" Width="150" HorizontalAlignment="Left" Margin="5,0" Height="17"/>
+                <TextBox Name="nombreTextBox" Text="{Binding Nombre}" Width="150" HorizontalAlignment="Left" Margin="5,0" Height="20"/>
 
                 <Label Content="Apellidos:" FontWeight="Bold"/>
 
-                <TextBox Name="apellidosTextBox" Width="150" Height="17" Text="{Binding Apellido}" HorizontalAlignment="Left" Margin="5,0" />
+                <TextBox Name="apellidosTextBox" Width="150" Height="20" Text="{Binding Apellido}" HorizontalAlignment="Left" Margin="5,0" />
 
                 <Label Content="Cedula:" FontWeight="Bold"/>
 
-                <TextBox Name="cedulaTextBox" Width="150" Height="17" Text="{Binding Apellido}" HorizontalAlignment="Left" Margin="5,0,5,21" />
+                <TextBox Name="cedulaTextBox" Width="150" Height="20" Text="{Binding Cedula}" HorizontalAlignment="Left" Margin="5,0,5,21" />
 
                 
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="37,0,0,0">
+                
                 <Label Content="Historial Prestamo" FontWeight="Bold" HorizontalAlignment="Left" Padding="0,1,1,1" Width="106" Height="17" Margin="0,0,0,6"/>
-                <TextBlock x:Name="historialTextBlock" Width="150" Height="107" Background="LightGray" Padding="0,0,0,2" />
-
-
-
-
-
-                <Label Content="Balance:" FontWeight="Bold" Width="60" HorizontalAlignment="Left"  Margin="-1,2,0,6" Padding="0,1,1,1"/>
-                <TextBox x:Name="balanceTextBox" IsReadOnly="True" Text="{Binding Balance}" HorizontalAlignment="Left" Width="150" Margin="0,0,0,17"  />
+                <TextBlock x:Name="historialTextBlock" Width="150" Height="107" Background="LightGray" Text="{Binding Historial}" Padding="0,0,0,2" />
+                <Label Content="Balance:" FontWeight="Bold" Width="60" HorizontalAlignment="Left"  Margin="-1,7,0,6" Padding="0,1,1,1"/>
+                <TextBox x:Name="balanceTextBox" IsReadOnly="True" Text="{Binding Balance}" HorizontalAlignment="Left" Width="150" Margin="0,0,0,17" Height="20"  />
 
             </StackPanel>
 
@@ -64,28 +60,29 @@
                 </StackPanel>
             </Button>
 
-            <Button Name="nuevoButton" Width="60" Height="20"  HorizontalContentAlignment="Left">
+            <Button Name="nuevoButton" Width="60" Height="20"  HorizontalContentAlignment="Left" Click="nuevoButton_Click">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Resources/money.png" />
+                    <Image Source="/Resources/persona.png" />
+
                     <Label Content="Nuevo" FontWeight="Bold" Padding="-1"/>
                 </StackPanel>
             </Button>
 
-            <Button Name="guardarButton" Width="66" Height="20" HorizontalContentAlignment="Left" Margin="20,0,0,0">
+            <Button Name="guardarButton" Width="66" Height="20" HorizontalContentAlignment="Left" Margin="20,0,0,0" Click="guardarButton_Click">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Resources/save.png" />
                     <Label Content="Guardar" FontWeight="Bold" Padding="-1"/>
                 </StackPanel>
             </Button>
 
-            <Button Name="editarButton" Width="60" Height="20" HorizontalContentAlignment="Left" Margin="20,0,0,0">
+            <Button Name="editarButton" Width="60" Height="20" HorizontalContentAlignment="Left" Margin="20,0,0,0" Click="editarButton_Click">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Resources/lapiz.png" />
                     <Label Content="Editar" FontWeight="Bold" Padding="-1"/>
                 </StackPanel>
             </Button>
 
-            <Button Name="eliminarButton" Width="66" Height="20" HorizontalContentAlignment="Left" Margin="20,0,0,0">
+            <Button Name="eliminarButton" Width="66" Height="20" HorizontalContentAlignment="Left" Margin="20,0,0,0" Click="eliminarButton_Click">
                 <StackPanel Orientation="Horizontal" Width="70">
                     <Image Source="/Resources/delete.png" />
                     <Label Content="Eliminar" FontWeight="Bold" Padding="-1"/>

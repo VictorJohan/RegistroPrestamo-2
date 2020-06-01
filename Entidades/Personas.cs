@@ -14,6 +14,6 @@ namespace ProgramaPrestamos.Entidades
         public string Apellido { get; set; }
         public string Cedula { get; set; }
         public string Historial { get; set; }
-        public int Balance { get; set; }
+        public double Balance { get; set; }
     }
 }

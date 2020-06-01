@@ -17,15 +17,22 @@
             <StackPanel Orientation="Horizontal">
                 <TextBox Name="idPrestamoTextBox" Text="{Binding IdPrestamo}" Width="80" Margin="5,0,0,0"/>
 
-
-                <TextBox Name="idPersonaTextBox" Text="{Binding IdPersona}" Width="80" Margin="116,0,0,0"/>
-
-                <Button Name="buscarPrestamoButton" Width="60" Height="20" HorizontalContentAlignment="Left" Margin="11,0,0,0" Click="buscarPrestamoButton_Click">
+                <Button Name="buscarPrestamoButton" Width="60" Height="20" HorizontalContentAlignment="Left" Margin="13,0,0,0" Click="buscarPrestamoButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/search.png" />
                         <Label Content="Buscar" FontWeight="Bold" Padding="-1"/>
                     </StackPanel>
                 </Button>
+
+                <TextBox Name="idPersonaTextBox" Text="{Binding IdPersona}" Width="80" Margin="43,0,0,0"/>
+
+                <Button Name="verPersonaButton" Width="112" Height="20" HorizontalContentAlignment="Left" Margin="13,0,0,0" Click="verPersonaButton_Click_1">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/search.png" />
+                        <Label Content="Buscar persona" FontWeight="Bold" Padding="-1"/>
+                    </StackPanel>
+                </Button>
+                
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,7,0,5">
