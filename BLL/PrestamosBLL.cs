@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RegistroPrestamo.DAL;
-using RegistroPrestamo.Entidades;
+using ProgramaPrestamos.DAL;
+using ProgramaPrestamos.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Windows;
 
-namespace RegistroPrestamo.BLL
+namespace ProgramaPrestamos.BLL
 {
     public class PrestamosBLL
     {
@@ -17,7 +17,7 @@ namespace RegistroPrestamo.BLL
         {
             Contexto contexto = new Contexto();
             bool encontrado = false;
-
+            
             try
             {
                 encontrado = contexto.Prestamos.Any(e => e.IdPersona == id);
@@ -41,7 +41,7 @@ namespace RegistroPrestamo.BLL
 
             try
             {
-                //Se agrega la entidad que se desea insertar al contexto
+                
                 contexto.Prestamos.Add(prestamos);
                 key = contexto.SaveChanges() > 0;
             }
@@ -64,8 +64,7 @@ namespace RegistroPrestamo.BLL
 
             try
             {
-                /*Se marca la entidad modificada para el contexto
-                 sepa como proceder*/
+                
                 contexto.Entry(prestamos).State = EntityState.Modified;
                 key = contexto.SaveChanges() > 0;
             }
@@ -100,7 +99,6 @@ namespace RegistroPrestamo.BLL
 
             try
             {
-                //Buscar la entidad que se desea eliminar
 
                 var prestamos = contexto.Prestamos.Find(id);
 

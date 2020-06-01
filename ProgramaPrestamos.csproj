@@ -10,10 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\atras.png" />
     <None Remove="Resources\basura.png" />
     <None Remove="Resources\delete.png" />
     <None Remove="Resources\lapiz.png" />
     <None Remove="Resources\money.png" />
+    <None Remove="Resources\persona.png" />
+    <None Remove="Resources\prestamo.png" />
     <None Remove="Resources\save.png" />
     <None Remove="Resources\search.png" />
   </ItemGroup>
@@ -27,10 +30,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\atras.png" />
     <Resource Include="Resources\basura.png" />
     <Resource Include="Resources\delete.png" />
     <Resource Include="Resources\lapiz.png" />
     <Resource Include="Resources\money.png" />
+    <Resource Include="Resources\persona.png" />
+    <Resource Include="Resources\prestamo.png" />
     <Resource Include="Resources\save.png" />
     <Resource Include="Resources\search.png" />
   </ItemGroup>

@@ -1,0 +1,97 @@
+﻿<Window x:Class="ProgramaPrestamos.UI.RegistroPersona"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProgramaPrestamos.UI"
+        mc:Ignorable="d"
+          Title="Registro Persona" Height="320" Width="450" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+
+        <StackPanel Orientation="Horizontal" Margin="10,10,10,10">
+            
+            <StackPanel Orientation="Vertical">
+
+                <Label Content="Persona Id:" FontWeight="Bold" Padding="0,1,1,1" Margin="0,0,0,6"/>
+
+
+                <StackPanel Orientation="Horizontal" Width="159" HorizontalAlignment="Left">
+                    <TextBox Name="idPrestamoTextBox" Text="{Binding IdPersona}" Width="80" Margin="5,0,0,0"/>
+
+                    <Button Name="buscarPersonaButton" Width="60" Height="20" HorizontalContentAlignment="Left" Margin="11,0,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/search.png" />
+                            <Label Content="Buscar" FontWeight="Bold" Padding="-1"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <Label Content="Nombres:" FontWeight="Bold"/>
+
+                <TextBox Name="nombreTextBox" Text="{Binding Nombre}" Width="150" HorizontalAlignment="Left" Margin="5,0" Height="17"/>
+
+                <Label Content="Apellidos:" FontWeight="Bold"/>
+
+                <TextBox Name="apellidosTextBox" Width="150" Height="17" Text="{Binding Apellido}" HorizontalAlignment="Left" Margin="5,0" />
+
+                <Label Content="Cedula:" FontWeight="Bold"/>
+
+                <TextBox Name="cedulaTextBox" Width="150" Height="17" Text="{Binding Apellido}" HorizontalAlignment="Left" Margin="5,0,5,21" />
+
+                
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="37,0,0,0">
+                <Label Content="Historial Prestamo" FontWeight="Bold" HorizontalAlignment="Left" Padding="0,1,1,1" Width="106" Height="17" Margin="0,0,0,6"/>
+                <TextBlock x:Name="historialTextBlock" Width="150" Height="107" Background="LightGray" Padding="0,0,0,2" />
+
+
+
+
+
+                <Label Content="Balance:" FontWeight="Bold" Width="60" HorizontalAlignment="Left"  Margin="-1,2,0,6" Padding="0,1,1,1"/>
+                <TextBox x:Name="balanceTextBox" IsReadOnly="True" Text="{Binding Balance}" HorizontalAlignment="Left" Width="150" Margin="0,0,0,17"  />
+
+            </StackPanel>
+
+            
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="17,217,0,0" Width="405" Height="23">
+
+            <Button Name="atrasButton" Width="60" Height="20" Margin="0,0,28,0" Click="atrasButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/atras.png" />
+                    <Label Content="Atras" FontWeight="Bold" Padding="-1"/>
+                </StackPanel>
+            </Button>
+
+            <Button Name="nuevoButton" Width="60" Height="20"  HorizontalContentAlignment="Left">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/money.png" />
+                    <Label Content="Nuevo" FontWeight="Bold" Padding="-1"/>
+                </StackPanel>
+            </Button>
+
+            <Button Name="guardarButton" Width="66" Height="20" HorizontalContentAlignment="Left" Margin="20,0,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/save.png" />
+                    <Label Content="Guardar" FontWeight="Bold" Padding="-1"/>
+                </StackPanel>
+            </Button>
+
+            <Button Name="editarButton" Width="60" Height="20" HorizontalContentAlignment="Left" Margin="20,0,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/lapiz.png" />
+                    <Label Content="Editar" FontWeight="Bold" Padding="-1"/>
+                </StackPanel>
+            </Button>
+
+            <Button Name="eliminarButton" Width="66" Height="20" HorizontalContentAlignment="Left" Margin="20,0,0,0">
+                <StackPanel Orientation="Horizontal" Width="70">
+                    <Image Source="/Resources/delete.png" />
+                    <Label Content="Eliminar" FontWeight="Bold" Padding="-1"/>
+                </StackPanel>
+            </Button>
+
+        </StackPanel>
+    </Grid>
+</Window>

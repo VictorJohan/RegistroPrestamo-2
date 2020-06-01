@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RegistroPrestamo.DAL;
+using ProgramaPrestamos.DAL;
 
-namespace RegistroPrestamo.Migrations
+namespace ProgramaPrestamos.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200529100333_Migracion_Inicial")]
+    [Migration("20200601025622_Migracion_Inicial")]
     partial class Migracion_Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -18,14 +18,37 @@ namespace RegistroPrestamo.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.4");
 
-            modelBuilder.Entity("RegistroPrestamo.Entidades.Prestamos", b =>
+            modelBuilder.Entity("ProgramaPrestamos.Entidades.Personas", b =>
+                {
+                    b.Property<int>("PersonaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Apellido")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Balance")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Cedula")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Historial")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("PersonaId");
+
+                    b.ToTable("Personas");
+                });
+
+            modelBuilder.Entity("ProgramaPrestamos.Entidades.Prestamos", b =>
                 {
                     b.Property<int>("IdPrestamo")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
-
-                    b.Property<double>("Balance")
-                        .HasColumnType("REAL");
 
                     b.Property<string>("ConceptoPrestamo")
                         .HasColumnType("TEXT");
