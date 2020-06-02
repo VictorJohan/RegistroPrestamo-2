@@ -54,14 +54,9 @@
                 <TextBox Name="conceptoTextBox" Width="150" Height="57" Text="{Binding ConceptoPrestamo}" HorizontalAlignment="Left" Margin="5,0" TextWrapping="Wrap" TextChanged="conceptoTextBox_TextChanged" MaxLength="190"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="8,36,0,0" HorizontalAlignment="Left" Width="405">
+            <StackPanel Orientation="Horizontal" Margin="92,36,0,0" HorizontalAlignment="Left" Width="246">
 
-                <Button Name="atrasButton" Width="60" Height="20" Margin="0,0,28,0" Click="atrasButton_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Resources/atras.png" />
-                        <Label Content="Atras" FontWeight="Bold" Padding="-1"/>
-                    </StackPanel>
-                </Button>
+                
 
                 <Button Name="nuevoButton" Width="60" Height="20"  HorizontalContentAlignment="Left" Click="nuevoButton_Click">
                     <StackPanel Orientation="Horizontal">
@@ -77,12 +72,6 @@
                     </StackPanel>
                 </Button>
 
-                <Button Name="editarButton" Width="60" Height="20" HorizontalContentAlignment="Left" Margin="20,0,0,0" Click="editarButton_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Resources/lapiz.png" />
-                        <Label Content="Editar" FontWeight="Bold" Padding="-1"/>
-                    </StackPanel>
-                </Button>
 
                 <Button Name="eliminarButton" Width="66" Height="20" HorizontalContentAlignment="Left" Margin="20,0,0,0" Click="eliminarButton_Click">
                     <StackPanel Orientation="Horizontal" Width="70">

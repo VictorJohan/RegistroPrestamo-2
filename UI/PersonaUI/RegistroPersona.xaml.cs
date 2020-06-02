@@ -71,16 +71,9 @@ namespace ProgramaPrestamos.UI
             }
         }
 
-        private void editarButton_Click(object sender, RoutedEventArgs e)
-        {
-            //NO SE QUE SE SUPONE QUE DEBA CODIFICAR AQUI YA QUE A LA HORA DE 
-            //BUSCAR EL REGISTRO SE PUEDE EDITAR DIRECTAMENTE.
-        }
-
         private void eliminarButton_Click(object sender, RoutedEventArgs e)
         {
             
-
             if (PersonasBLL.Eliminar(int.Parse(idPersonaTextBox.Text)))
             {
                 MessageBox.Show("Eliminado.", "Exito.",
@@ -161,12 +154,5 @@ namespace ProgramaPrestamos.UI
             return ok;
         }
 
-        private void atrasButton_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
-
-        }
     }
 }

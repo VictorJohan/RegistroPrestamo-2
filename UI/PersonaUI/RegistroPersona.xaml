@@ -51,14 +51,8 @@
 
             
         </StackPanel>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="17,217,0,0" Width="405" Height="23">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="104,217,0,0" Width="240" Height="23">
 
-            <Button Name="atrasButton" Width="60" Height="20" Margin="0,0,28,0" Click="atrasButton_Click">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/Resources/atras.png" />
-                    <Label Content="Atras" FontWeight="Bold" Padding="-1"/>
-                </StackPanel>
-            </Button>
 
             <Button Name="nuevoButton" Width="60" Height="20"  HorizontalContentAlignment="Left" Click="nuevoButton_Click">
                 <StackPanel Orientation="Horizontal">
@@ -75,13 +69,7 @@
                 </StackPanel>
             </Button>
 
-            <Button Name="editarButton" Width="60" Height="20" HorizontalContentAlignment="Left" Margin="20,0,0,0" Click="editarButton_Click">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/Resources/lapiz.png" />
-                    <Label Content="Editar" FontWeight="Bold" Padding="-1"/>
-                </StackPanel>
-            </Button>
-
+            
             <Button Name="eliminarButton" Width="66" Height="20" HorizontalContentAlignment="Left" Margin="20,0,0,0" Click="eliminarButton_Click">
                 <StackPanel Orientation="Horizontal" Width="70">
                     <Image Source="/Resources/delete.png" />

@@ -36,14 +36,14 @@ namespace ProgramaPrestamos
         {
             RegistroPrestamo registroPrestamo = new RegistroPrestamo();
             registroPrestamo.Show();
-            this.Close();
+            //this.Close();
         }
 
         private void nuevaPersona_Click(object sender, RoutedEventArgs e)
         {
             RegistroPersona registroPersona = new RegistroPersona();
             registroPersona.Show();
-            this.Close();
+            //this.Close();
         }
     }
 
