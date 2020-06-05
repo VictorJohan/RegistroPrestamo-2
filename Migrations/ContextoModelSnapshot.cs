@@ -25,8 +25,8 @@ namespace ProgramaPrestamos.Migrations
                     b.Property<string>("Apellido")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Balance")
-                        .HasColumnType("INTEGER");
+                    b.Property<double>("Balance")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("Cedula")
                         .HasColumnType("TEXT");

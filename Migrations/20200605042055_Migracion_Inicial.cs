@@ -17,7 +17,7 @@ namespace ProgramaPrestamos.Migrations
                     Apellido = table.Column<string>(nullable: true),
                     Cedula = table.Column<string>(nullable: true),
                     Historial = table.Column<string>(nullable: true),
-                    Balance = table.Column<int>(nullable: false)
+                    Balance = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {

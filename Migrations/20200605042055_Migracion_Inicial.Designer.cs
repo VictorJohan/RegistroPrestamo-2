@@ -9,7 +9,7 @@ using ProgramaPrestamos.DAL;
 namespace ProgramaPrestamos.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200601025622_Migracion_Inicial")]
+    [Migration("20200605042055_Migracion_Inicial")]
     partial class Migracion_Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,8 +27,8 @@ namespace ProgramaPrestamos.Migrations
                     b.Property<string>("Apellido")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Balance")
-                        .HasColumnType("INTEGER");
+                    b.Property<double>("Balance")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("Cedula")
                         .HasColumnType("TEXT");

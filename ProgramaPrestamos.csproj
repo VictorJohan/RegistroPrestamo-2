@@ -10,6 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="RegistroPrestamoTest\**" />
+    <EmbeddedResource Remove="RegistroPrestamoTest\**" />
+    <None Remove="RegistroPrestamoTest\**" />
+    <Page Remove="RegistroPrestamoTest\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\atras.png" />
     <None Remove="Resources\basura.png" />
     <None Remove="Resources\delete.png" />
